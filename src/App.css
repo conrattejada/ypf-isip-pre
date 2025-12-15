@@ -11,3 +11,10 @@
   animation: App-logo-spin infinite 20s linear;
   height: 50px;
 }
+
+.container {
+  display: flex;
+  width: 95%;
+  height: 100%;
+  overflow: visible;
+}
