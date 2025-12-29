@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  height: 75vh;
+  overflow-y: hidden;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: .25em;
+  overflow-y: scroll;
+  height: 100%;
+  padding-inline: 1em;
+}

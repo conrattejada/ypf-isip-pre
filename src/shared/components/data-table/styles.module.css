@@ -1,0 +1,96 @@
+.scrollContainer {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.Table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.HeaderRow {
+  background-color: var(--palette-background-b-3);
+  border-block: 1px solid var(--palette-background-b-5);
+}
+
+.Header {
+  position: sticky !important;
+  top: 0;
+  border-block: 1px solid var(--palette-background-b-5);
+  background-color: var(--palette-background-b-3);
+  z-index: 1;
+  color: var(--palette-primary-text-7);
+  font-size: .75em;
+  padding: .5em .6em;
+  text-align: left;
+}
+
+.Header:hover {
+  cursor: pointer;
+  border-color: var(--palette-primary-text-1);
+}
+
+.Row {
+  background-color: var(--palette-background-b-3);
+}
+
+.Row th {
+  text-align: left;
+}
+
+.Row td,
+.Header td {
+  text-align: left;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-inline: .5em;
+  border-block: 1px solid var(--palette-background-b-5);
+}
+
+.Row td[title]:hover::after,
+.Header td[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  white-space: normal;
+  z-index: 1000;
+  margin-bottom: 5px;
+  max-width: 300px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.Row td[title]:hover::before,
+.Header td[title]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+  z-index: 1001;
+}
+
+.Sticky {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: inherit;
+}
+
+.Header.Sticky {
+  z-index: 3;
+}
