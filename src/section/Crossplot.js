@@ -36,7 +36,13 @@ export default function Crossplot({ data, config, dataFiltered, isOpen, paletteC
         { symbol: 'triangle-right', radius: 4, fillColor: '#9900FF80', lineColor: '#9900FF', lineWidth: 1 },
         { symbol: 'rect', radius: 4, fillColor: '#00CCCC80', lineColor: '#00CCCC', lineWidth: 1 },
     ];
-
+    const onChartLoad = function () {
+        const chart = this;
+      
+        chart.container.ondblclick = function () {
+          chart.zoomOut(); 
+        };
+      };
 
 
     const handleOptions = (seriesData) => ({
@@ -50,9 +56,12 @@ export default function Crossplot({ data, config, dataFiltered, isOpen, paletteC
             marginBottom: 100,
             spacing: [10, 10, 10, 10],
             resetZoomButton: {
-                position: { align: 'right', verticalAlign: 'top', x: 0, y: 0 }
+                theme: {
+                    display: 'none'
+                }
             },
             events: {
+                load: onChartLoad,
                 redraw: function () {
                     const chart = this;
                     if (chart.customDiagonal) chart.customDiagonal.destroy();
